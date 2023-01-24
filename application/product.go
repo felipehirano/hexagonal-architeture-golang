@@ -14,31 +14,30 @@ type ProductInterface interface {
 
 const (
 	DISABLED = "disabled"
-	ENABLED = "enabled"
+	ENABLED  = "enabled"
 )
 
 type Product struct {
-	ID string
-	Name string
-	Price float64
+	ID     string
+	Name   string
+	Price  float64
 	Status string
 }
 
-func (p *Product) IsValid() (bool, error) {
-	return p.ID
-}
+//func (p *Product) IsValid() (bool, error) {
+//	return p.ID
+//}
 
 func (p *Product) Enable() error {
 	if p.Price > 0 {
 		p.Status = ENABLED
 		return nil
 	}
-
-	return errors.New("The price must be greater than zero to enable the product")
+	return errors.New("the price must be greater than zero to enable the product")
 }
 
 // func (p *Product) Disable() error {
-	
+
 // }
 
 func (p *Product) GetName() string {
